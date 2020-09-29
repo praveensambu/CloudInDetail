@@ -1,0 +1,36 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <a href="/contact" id="contact-button" class="mdl-button mdl-button--fab mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast mdl-shadow--4dp"><i
+        class="material-icons">mail</i></a>
+    <header class="mdl-layout__header mdl-layout__header--waterfall site-header">
+      <div class="mdl-layout__header-row site-logo-row"><span class="mdl-layout__title">
+        <div _ngcontent-khy-c64="" class="docs-header-headline">
+          <h1 _ngcontent-khy-c64="" class="mat-h1">Cloud In Detail</h1>
+          <h2 _ngcontent-khy-c64=""> Learn AWS Cloud Courses in Detail</h2>
+        </div>
+          <!-- <div class="site-logo"></div><span class="site-description">Cloud In Detail</span> -->
+        </span></div>
+      <div class="mdl-layout__header-row site-navigation-row mdl-layout--large-screen-only">
+        <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+            <a class="mdl-navigation__link" routerLink="/home" routerLinkActive="active">Home</a>
+            <a class="mdl-navigation__link"routerLink="/blog" routerLinkActive="active">Blog</a><a
+            class="mdl-navigation__link" routerLink="/about" routerLinkActive="active">About</a>
+            <a class="mdl-navigation__link" routerLink="/contact" routerLinkActive="active">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <div class="mdl-layout__drawer mdl-layout--small-screen-only">
+      <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
+          <a class="mdl-navigation__link" routerLink="/home" routerLinkActive="active">Home</a>
+          <a class="mdl-navigation__link" routerLink="/blog" routerLinkActive="active">Blog</a>
+          <a class="mdl-navigation__link" routerLink="/about" routerLinkActive="active">About</a>
+          <a class="mdl-navigation__link" routerLink="/contact" routerLinkActive="active">Contact</a>
+      </nav>
+    </div>
+    <main class="mdl-layout__content">
+        <router-outlet></router-outlet>
+    </main>
+    <!-- Start of HubSpot Embed Code -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/8510192.js"></script>
+  <!-- End of HubSpot Embed Code -->
+  </div>
+  

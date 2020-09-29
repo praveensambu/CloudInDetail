@@ -1,0 +1,35 @@
+<div class="site-content">
+  <div class="mdl-grid site-max-width">
+    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp page-content">
+      <div class="mdl-card__title">
+        <h1 class="mdl-card__title-text">Contact</h1>
+      </div>
+      <div class="mdl-grid site-copy">
+        <form novalidate #contactAddForm="ngForm">
+          <fieldset>
+            <mat-card>
+              <mat-form-field>
+                <input matInput placeholder="Name" name="Name" required [(ngModel)]="contact.name">
+                <mat-icon matSuffix>person</mat-icon>
+              </mat-form-field><br>
+              <mat-form-field>
+                <input matInput placeholder="Enter your email" name="email"  required [(ngModel)]="contact.email">
+                <mat-icon matSuffix>drafts</mat-icon>
+              </mat-form-field><br>
+              <mat-form-field>
+                <input type="tel" matInput placeholder="Telephone" name="phone"  required [(ngModel)]="contact.phone">
+                <mat-icon matSuffix>call</mat-icon>
+              </mat-form-field><br>
+              <mat-form-field>
+                <input matInput placeholder="Subject" required name="subject"  [(ngModel)]="contact.subject">
+                <mat-icon matSuffix>create</mat-icon>
+              </mat-form-field><br>
+              <button mat-button type="submit" class="btn btn-primary waves-light" (click)="onSubmit()"
+                [disabled]="contactAddForm.form.invalid">Submit</button>
+            </mat-card>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
