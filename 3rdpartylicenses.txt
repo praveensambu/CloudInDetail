@@ -89,15 +89,9 @@ THE SOFTWARE.
 
 @angular/material/button
 
-@angular/material/card
-
 @angular/material/datepicker
 
 @angular/material/dialog
-
-@angular/material/form-field
-
-@angular/material/icon
 
 @angular/material/snack-bar
 
