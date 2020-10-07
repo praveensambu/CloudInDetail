@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AwsService } from '../aws.service';
 import { IContact } from '../models/contact.model';
 
@@ -9,26 +10,37 @@ import { IContact } from '../models/contact.model';
 })
 export class ContactComponent implements OnInit {
   public contact: IContact;
-  constructor(private aws: AwsService) { }
+  constructor(private aws: AwsService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.contact = {
       email : '',
       name : '',
       phone : null,
-      subject : ''
+      subject : '',
+      purpose : ''
     };
-    this.aws.getcontacts()
-    .subscribe((data: any) => {
-      console.log(data);
-    });
+    // this.aws.getcontacts()
+    // .subscribe((data: any) => {
+    //   console.log(data);
+    // });
   }
 
   public onSubmit(): void {
-    console.log(this.contact);
+    if (this.contact.email !== '' && this.contact.name !== '') {
     this.aws.addContact(this.contact).subscribe((contact: any) => {
-      console.log(contact);
+      this.snackBar.open('Thanks For Writing!!!. Will get back soon.');
+      this.contact =  {
+        email : '',
+        name : '',
+        phone : null,
+        subject : '',
+        purpose : ''
+      };
     });
-   }
+   } else {
+    this.snackBar.open('We need your email to contact.');
+  }
+  }
 
 }

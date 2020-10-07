@@ -164,7 +164,9 @@ img {
 .homepage-portfolio .mdl-button {
   margin: 0 auto;
 }
-
+a:hover {
+  text-decoration: underline;
+}
 .homepage-footer {
   background: #eee;
   margin-bottom: -1em;

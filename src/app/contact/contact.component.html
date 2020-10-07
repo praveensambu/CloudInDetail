@@ -1,35 +1,42 @@
-<div class="site-content">
-  <div class="mdl-grid site-max-width">
-    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp page-content">
-      <div class="mdl-card__title">
-        <h1 class="mdl-card__title-text">Contact</h1>
-      </div>
-      <div class="mdl-grid site-copy">
-        <form novalidate #contactAddForm="ngForm">
-          <fieldset>
-            <mat-card>
-              <mat-form-field>
-                <input matInput placeholder="Name" name="Name" required [(ngModel)]="contact.name">
-                <mat-icon matSuffix>person</mat-icon>
-              </mat-form-field><br>
-              <mat-form-field>
-                <input matInput placeholder="Enter your email" name="email"  required [(ngModel)]="contact.email">
-                <mat-icon matSuffix>drafts</mat-icon>
-              </mat-form-field><br>
-              <mat-form-field>
-                <input type="tel" matInput placeholder="Telephone" name="phone"  required [(ngModel)]="contact.phone">
-                <mat-icon matSuffix>call</mat-icon>
-              </mat-form-field><br>
-              <mat-form-field>
-                <input matInput placeholder="Subject" required name="subject"  [(ngModel)]="contact.subject">
-                <mat-icon matSuffix>create</mat-icon>
-              </mat-form-field><br>
-              <button mat-button type="submit" class="btn btn-primary waves-light" (click)="onSubmit()"
-                [disabled]="contactAddForm.form.invalid">Submit</button>
-            </mat-card>
-          </fieldset>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
+<section class="login-block">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 login-sec">
+				<h2 class="text-center">How Can I Help?</h2>
+				  <form class="login-form" novalidate #contactAddForm="ngForm">
+            <div class="form-group">
+                  <label class="text-uppercase">Full Name *</label>
+                  <input  class="form-control" placeholder="Name" name="Name" [ngModelOptions]="{standalone: true}" required [(ngModel)]="contact.name">
+            </div>
+            <div class="form-group">
+                  <label class="text-uppercase">Email *</label>
+                  <input class="form-control" placeholder="Enter your email"  [ngModelOptions]="{standalone: true}" name="email"  required [(ngModel)]="contact.email">
+            </div>
+            <div class="form-group">
+                  <label class="text-uppercase">Phone Number *</label>
+                  <input class="form-control" type="tel"  placeholder="Telephone" [ngModelOptions]="{standalone: true}" name="phone"  required [(ngModel)]="contact.phone">
+            </div>
+            <div class="form-group">
+                  <label class="text-uppercase">Message</label>
+                  <textarea class="form-control"  rows="3"  [ngModelOptions]="{standalone: true}" [(ngModel)]="contact.subject"></textarea>
+            </div>
+                <button type="submit"class="btn btn-login float-right" (click)="onSubmit()"
+                  [disabled]="contactAddForm.form.invalid">Submit</button>
+          </form>
+			</div>
+			<div class="col-md-8 banner-sec">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+						<div class="carousel-item active">
+							<div class="carousel-caption d-none d-md-block">
+								<div class="banner-text">
+								
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

@@ -4,14 +4,15 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { HomeComponent } from './home/home.component';
+import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
-  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'blog', component: TutorialsComponent },
-];
+  { path: 'blog/:slug', component: BlogComponent },
+  { path: '', component: HomeComponent }];
 
 // configures NgModule imports and exports
 @NgModule({

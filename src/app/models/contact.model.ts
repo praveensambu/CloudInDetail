@@ -3,4 +3,5 @@ export interface IContact {
     subject: string;
     email: string;
     phone : number;
+    purpose : string;
 }
