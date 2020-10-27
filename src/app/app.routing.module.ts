@@ -5,6 +5,7 @@ import { ContactComponent } from './contact/contact.component';
 import { TutorialsComponent } from './tutorials/tutorials.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
+import { AddPostComponent } from './add-post/add-post.component';
 
 const routes: Routes = [
   { path: 'about', component: AboutComponent },
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'blog', component: TutorialsComponent },
   { path: 'blog/:slug', component: BlogComponent },
+  { path: 'add-post', component: AddPostComponent },
   { path: '', component: HomeComponent }];
 
 // configures NgModule imports and exports

@@ -3,6 +3,7 @@
 		<h5 class="card-title">{{post.title}}</h5>
 		<p class="card-text">{{post.intro}}</p>
     <a (click)="goTo(post.slug)" class="btn btn-primary">more</a>
-
+ 
+    <div [innerHTML]="post?.HtmlContent" style="padding-left: 40px;"></div>
 	</div>
 </div> 

@@ -10,11 +10,15 @@ import { AppRoutingModule } from './app.routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoMaterialModule } from './material.module';
 import {AwsService} from './aws.service';
 import { HttpClientModule } from '@angular/common/http';
 import { BlogComponent } from './blog/blog.component';
+import { AddPostComponent } from './add-post/add-post.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { QuillModule } from 'ngx-quill';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,13 +26,17 @@ import { BlogComponent } from './blog/blog.component';
     AboutComponent,
     ContactComponent,
     TutorialsComponent,
-    BlogComponent
+    BlogComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,
+    QuillModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
+    AngularEditorModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     FormsModule,
     DemoMaterialModule
   ],

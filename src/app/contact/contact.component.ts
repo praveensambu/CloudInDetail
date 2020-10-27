@@ -20,10 +20,10 @@ export class ContactComponent implements OnInit {
       subject : '',
       purpose : ''
     };
-    // this.aws.getcontacts()
-    // .subscribe((data: any) => {
-    //   console.log(data);
-    // });
+    this.aws.getcontacts()
+    .subscribe((data: IContact) => {
+      console.log(data);
+    });
   }
 
   public onSubmit(): void {

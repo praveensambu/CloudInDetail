@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AwsService } from '../aws.service';
+import { IBlogPost } from '../models/blogPost.model';
 import { PostListDto } from '../models/post.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tutorials',
@@ -10,7 +13,7 @@ import { PostListDto } from '../models/post.model';
 export class TutorialsComponent implements OnInit {
 
 
-  constructor(private router: Router) {
+  constructor(private aws: AwsService, private router: Router) {
     this.init();
   }
 
@@ -20,26 +23,16 @@ export class TutorialsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.posts = [{
-      title: 'Post #1',
-      slug: 'post-1',
-      intro: 'some very important lorem ipsum text'
+    this.aws.getPosts()
+    .subscribe((data: any) => {
+      console.log(data.Items);
+        data.Items.forEach(a=>{
+          a.slug = a.Title;
+          a.intro = a.Title;
+          this.posts.push(a);
+        });
+    });
 
-    },{
-      title: 'Post #2',
-      slug: 'post-2',
-      intro: 'some very important lorem ipsum text'
-
-    },{
-      title: 'Post #3',
-      slug: 'post-3',
-      intro: 'some very important lorem ipsum text'
-
-    },{
-      title: 'Post #4',
-      slug: 'post-4',
-      intro: 'some very important lorem ipsum text'
-    }];
   }
 
   goTo(slug) {
