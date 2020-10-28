@@ -3,7 +3,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
 import { IBlogPost } from '../models/blogPost.model';
-import { MatChipInputEvent, MatSnackBar } from '@angular/material';
+import { MatChipInputEvent } from '@angular/material/chips';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AwsService } from '../aws.service';
 import { DatePipe } from '@angular/common';
 
