@@ -11,13 +11,13 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./tutorials.component.scss']
 })
 export class TutorialsComponent implements OnInit {
-
+ public blogPosts: IBlogPost[] = [];
 
   constructor(private aws: AwsService, private router: Router) {
     this.init();
   }
 
-  @Input() posts: Array<PostListDto> = [];
+  // @Input() posts: Array<PostListDto> = [];
 
   init() {
   }
@@ -25,11 +25,11 @@ export class TutorialsComponent implements OnInit {
   ngOnInit() {
     this.aws.getPosts()
     .subscribe((data: any) => {
-      console.log(data.Items);
-        data.Items.forEach(a=>{
-          a.slug = a.Title;
-          a.intro = a.Title;
-          this.posts.push(a);
+      data.Items.forEach(a => {
+        a.intro = a.Title;
+        a.title = a.Title;
+        a.postId = 1;
+        this.blogPosts.push(a);
         });
     });
 

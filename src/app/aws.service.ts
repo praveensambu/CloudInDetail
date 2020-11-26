@@ -15,7 +15,7 @@ headers.append('Accept', 'application/json');
   providedIn: 'root'
 })
 export class AwsService {
-  private categories: IBlogPost[];
+  public blogPosts: IBlogPost[];
   constructor(private httpService: HttpClient) { }
 
   public getcontacts(): Observable<any> {
@@ -34,8 +34,8 @@ public getPosts(): Observable<IBlogPost[]> {
   return this.httpService.get<any>(blogPostUrl, {
     headers
     }).pipe(map(res => {
-    this.categories = JSON.parse(res.body);
-    return this.categories;
+    this.blogPosts = JSON.parse(res.body);
+    return this.blogPosts;
 }));
 }
 }

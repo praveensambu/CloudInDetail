@@ -7,6 +7,8 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AwsService } from '../aws.service';
 import { DatePipe } from '@angular/common';
+import {formatDate} from '@angular/common';
+
 
 @Component({
   selector: 'app-add-post',
@@ -120,7 +122,7 @@ public addPost() {
   if (this.addPostForm.valid) {
 
       this.post = this.addPostForm.getRawValue();
-      this.post.datePosted = '10/17/2020';
+      this.post.datePosted = formatDate(new Date(), 'yyyy/MM/dd', 'en');
       this.post.postedBy = 'PraveenSambu';
       this.post.categoryId = 1;
       this.aws.addBlogPost(this.post).subscribe((post: any) => {

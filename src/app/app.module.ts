@@ -14,10 +14,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DemoMaterialModule } from './material.module';
 import {AwsService} from './aws.service';
 import { HttpClientModule } from '@angular/common/http';
-import { BlogComponent } from './blog/blog.component';
+import { BlogPostComponent } from './blog/blog-post.component';
 import { AddPostComponent } from './add-post/add-post.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { QuillModule } from 'ngx-quill';
+import { TitleFormatPipe } from './tutorials/TitleFormatPipe';
 
 @NgModule({
   declarations: [
@@ -26,8 +27,9 @@ import { QuillModule } from 'ngx-quill';
     AboutComponent,
     ContactComponent,
     TutorialsComponent,
-    BlogComponent,
+    BlogPostComponent,
     AddPostComponent,
+    TitleFormatPipe
   ],
   imports: [
     BrowserModule,

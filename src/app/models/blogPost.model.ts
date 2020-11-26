@@ -6,6 +6,6 @@ export interface IBlogPost {
    htmlContent: string;
    datePosted: string;
    postedBy: string;
-   slug : string ;
+   slug : string;
    intro: string;
 }
