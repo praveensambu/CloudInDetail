@@ -22,7 +22,6 @@ export class ContactComponent implements OnInit {
     };
     this.aws.getcontacts()
     .subscribe((data: IContact) => {
-      console.log(data);
     });
   }
 

@@ -1,17 +1,31 @@
 <br><br>
 <div class="site-content">
   <div class="row">
-    <div class="col-sm-2"></div>
-    <div class="col-sm-4">
-    <div class="card mb-4" *ngFor="let post of blogPosts">
-      <div class="card-body">
-        <h5 class="card-title">{{post.title}}</h5>
-        <p class="card-text">{{post.intro}}</p>
-        <div class="p-btn"> <a href="#" class="btn btn-success" [routerLink]="['/blog/',post.postId, post.Title | format]">View Details <i class="ion-arrow-right-c"></i></a> </div>
-        <!-- <a (click)="goTo(post.slug)" class="btn btn-primary">more</a> -->
+    <div class="col-sm-3"></div>
+    <div class="col-sm-8 postlist">
+      <div class="col-sm-5 card" *ngFor="let post of blogPosts">
+        <div class="col-md-12">
+          <div class="image">
+            <a href="/unboxing-aws-datasync/">
+              <picture class="img-fluid">
+                <source type="image/webp"
+                  sizes="(min-width: 1200px) 540px, (min-width: 992px) 450px, (min-width: 768px) 330px, (min-width: 576px) 510px, 545px">
+                <img class="img-fluid" src="{{post?.headerPhotoUrl}}" alt="[plus] Unboxing AWS DataSync"></picture>
+            </a>
+          </div>
+          <h3>{{post.title}}</h3>
+          <p> {{post.intro}}</p>
+          <div class="row">
+
+            <div class="col-sm-3 p-btn">
+              <a href="#" class="btn btn-success" [routerLink]="['/blog/',post.postId, post.Title | format]">Read
+                Article... <i class="ion-arrow-right-c"></i></a> </div>
+               <div class="col-sm-3">
+            <button mat-button>SHARE</button></div>div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
   </div>
   <div class="col-sm-2"></div>
 </div>

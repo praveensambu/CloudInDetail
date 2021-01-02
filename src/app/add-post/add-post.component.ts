@@ -2,13 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { ENTER, COMMA } from '@angular/cdk/keycodes';
-import { IBlogPost } from '../models/blogPost.model';
+import { ICategory, IBlogPost } from '../models/blogPost.model';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AwsService } from '../aws.service';
 import { DatePipe } from '@angular/common';
 import {formatDate} from '@angular/common';
-
 
 @Component({
   selector: 'app-add-post',
@@ -23,19 +22,28 @@ export class AddPostComponent implements OnInit {
   public separatorKeysCodes = [ENTER, COMMA];
   public post: IBlogPost;
   public date = new Date();
+  public  categories: ICategory[] = [
+    {id: 1, name: 'AWS Developer'},
+    {id: 2, name: 'AWS Cloud Practioner'},
+    {id: 3, name: 'Aws associate Architect'},
+    {id: 4, name: 'AWS Case Studies'}
+  ];
   constructor(  private formbuilder: FormBuilder,
                 private aws: AwsService,
                 private snackBar: MatSnackBar) {
+
      this.post = {
-       slug :'',
-       intro :'',
+       slug : '',
+       intro : '',
        postId : 0,
        categoryId : 1,
+       category: '',
        title : '',
        datePosted : '',
        htmlContent : '',
        postedBy : '',
-       tags : ''
+       tags : '',
+       headerPhotoUrl: ''
      };
    }
   editorConfig: AngularEditorConfig = {
@@ -86,13 +94,16 @@ export class AddPostComponent implements OnInit {
 
   public ngOnInit() {
     this.addPostForm = this.formbuilder.group({
+      intro : '',
+      categoryId: '',
       title : '',
       datePosted : '',
       htmlContent : '',
       postedBy : '',
-      tags : ''
+      tags : '',
+      headerPhotoUrl : ''
     });
-    this.tags = ['walmart', 'male', 'free', 'sale'];
+    this.tags = ['aws'];
   }
 
   public add(event: MatChipInputEvent): void {
@@ -120,15 +131,13 @@ public remove(tag: any): void {
 
 public addPost() {
   if (this.addPostForm.valid) {
-
       this.post = this.addPostForm.getRawValue();
+      console.log(this.post);
       this.post.datePosted = formatDate(new Date(), 'yyyy/MM/dd', 'en');
-      this.post.postedBy = 'PraveenSambu';
-      this.post.categoryId = 1;
+      this.post.postedBy = 'Praveen Sambu';
       this.aws.addBlogPost(this.post).subscribe((post: any) => {
         this.snackBar.open('Thanks For Writing!!!. Will get back soon.');
       });
-      console.log(this.post);
   }
 }
 

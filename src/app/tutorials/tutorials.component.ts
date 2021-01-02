@@ -1,9 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AwsService } from '../aws.service';
-import { IBlogPost } from '../models/blogPost.model';
-import { PostListDto } from '../models/post.model';
-import { map } from 'rxjs/operators';
+import { ICategory, IBlogPost } from '../models/blogPost.model';
 
 @Component({
   selector: 'app-tutorials',
@@ -12,12 +10,15 @@ import { map } from 'rxjs/operators';
 })
 export class TutorialsComponent implements OnInit {
  public blogPosts: IBlogPost[] = [];
-
+ public  categories: ICategory[] = [
+  {id: 1, name: 'AWS Developer'},
+  {id: 2, name: 'AWS Cloud Practioner'},
+  {id: 3, name: 'Aws associate Architect'},
+  {id: 4, name: 'AWS Case Studies'}
+];
   constructor(private aws: AwsService, private router: Router) {
     this.init();
   }
-
-  // @Input() posts: Array<PostListDto> = [];
 
   init() {
   }
@@ -29,6 +30,14 @@ export class TutorialsComponent implements OnInit {
         a.intro = a.Title;
         a.title = a.Title;
         a.postId = 1;
+        if (a.HeaderPhotoUrl != null)
+        {
+          a.headerPhotoUrl = a.HeaderPhotoUrl;
+        }
+        else
+        {
+          a.headerPhotoUrl = 'https://cloudonaut.io/images/2020/12/move@330w2x.webp';
+        }
         this.blogPosts.push(a);
         });
     });
@@ -36,7 +45,6 @@ export class TutorialsComponent implements OnInit {
   }
 
   goTo(slug) {
-    console.warn(slug);
     this.router.navigate(['blog/' + slug ]);
   }
 }

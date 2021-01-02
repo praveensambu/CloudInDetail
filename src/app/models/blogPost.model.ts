@@ -1,6 +1,7 @@
 export interface IBlogPost {
    postId: number;
-   categoryId: number;
+   category: string;
+   categoryId : number;
    title: string;
    tags: string;
    htmlContent: string;
@@ -8,4 +9,11 @@ export interface IBlogPost {
    postedBy: string;
    slug : string;
    intro: string;
+   headerPhotoUrl : string;
 }
+
+
+export interface ICategory {
+   id: number;
+   name: string;
+ }
