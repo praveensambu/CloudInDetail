@@ -1158,9 +1158,6 @@ pre {
     word-break: break-all
 }
 
-.newsletter button {
-    cursor: not-allowed
-}
 
 @media (min-width: 768px) {
     body.announcement {
@@ -1185,27 +1182,4 @@ div.announcement p {
 
 div.announcement a {
     color: #fff
-}
-
-.accordion>.card>.card-header {
-    background-color: #ebeef1
-}
-
-.accordion>.card>.card-header>h2>button {
-    color: #637381
-}
-
-.testimonial>h4 {
-    font-size: 24px
-}
-
-.testimonial>h5 {
-    font-size: 16px
-}
-
-.plus-testimonials {
-    background-color: #f5f6f6;
-    margin-top: 60px;
-    padding-top: 60px;
-    padding-bottom: 60px
 }

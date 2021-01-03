@@ -17,11 +17,12 @@
           <p> {{post.intro}}</p>
           <div class="row">
 
-            <div class="col-sm-3 p-btn">
-              <a href="#" class="btn btn-success" [routerLink]="['/blog/',post.postId, post.Title | format]">Read
-                Article... <i class="ion-arrow-right-c"></i></a> </div>
-               <div class="col-sm-3">
-            <button mat-button>SHARE</button></div>div>
+            <!-- <div class="col-sm-6 p-btn"> -->
+              <a href="#" [routerLink]="['/blog/',post.postId, post.Title | format]">Read
+                Article... <i class="ion-arrow-right-c"></i></a>
+             <!--  </div>
+             <div class="col-sm-3">
+              <button mat-button>SHARE</button></div> -->
           </div>
         </div>
       </div>
