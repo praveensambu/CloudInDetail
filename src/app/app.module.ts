@@ -19,6 +19,9 @@ import { AddPostComponent } from './add-post/add-post.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
 import { QuillModule } from 'ngx-quill';
 import { TitleFormatPipe } from './tutorials/TitleFormatPipe';
+import { BlogsComponent } from './blog/blogs.component';
+import { QuestionsComponent } from './Certifications/questions/questions.component';
+import { QuestionComponent } from './Certifications/question/question.component';
 
 @NgModule({
   declarations: [
@@ -28,8 +31,11 @@ import { TitleFormatPipe } from './tutorials/TitleFormatPipe';
     ContactComponent,
     TutorialsComponent,
     BlogPostComponent,
+    BlogsComponent,
     AddPostComponent,
-    TitleFormatPipe
+    TitleFormatPipe,
+    QuestionsComponent,
+    QuestionComponent
   ],
   imports: [
     BrowserModule,

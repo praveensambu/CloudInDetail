@@ -23,10 +23,9 @@ export class AddPostComponent implements OnInit {
   public post: IBlogPost;
   public date = new Date();
   public  categories: ICategory[] = [
-    {id: 1, name: 'AWS Developer'},
-    {id: 2, name: 'AWS Cloud Practioner'},
-    {id: 3, name: 'Aws associate Architect'},
-    {id: 4, name: 'AWS Case Studies'}
+    {id: 1, name: 'AWS'},
+    {id: 2, name: 'Azure'},
+    {id: 3, name: 'Docker'}
   ];
   constructor(  private formbuilder: FormBuilder,
                 private aws: AwsService,
@@ -35,7 +34,7 @@ export class AddPostComponent implements OnInit {
      this.post = {
        slug : '',
        intro : '',
-       postId : 0,
+       postId : '',
        categoryId : 1,
        category: '',
        title : '',
@@ -132,7 +131,6 @@ public remove(tag: any): void {
 public addPost() {
   if (this.addPostForm.valid) {
       this.post = this.addPostForm.getRawValue();
-      console.log(this.post);
       this.post.datePosted = formatDate(new Date(), 'yyyy/MM/dd', 'en');
       this.post.postedBy = 'Praveen Sambu';
       this.aws.addBlogPost(this.post).subscribe((post: any) => {

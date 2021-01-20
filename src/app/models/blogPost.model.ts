@@ -1,7 +1,7 @@
 export interface IBlogPost {
-   postId: number;
+   postId: string;
    category: string;
-   categoryId : number;
+   categoryId: number;
    title: string;
    tags: string;
    htmlContent: string;

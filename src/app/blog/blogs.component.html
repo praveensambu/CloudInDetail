@@ -6,7 +6,7 @@
       <div class="col-sm-5 card" *ngFor="let post of blogPosts">
         <div class="col-md-12">
           <div class="image">
-            <a href="/unboxing-aws-datasync/">
+            <a href="#" [routerLink]="['/blog/',post.categoryId, post.postId | format]">
               <picture class="img-fluid">
                 <source type="image/webp"
                   sizes="(min-width: 1200px) 540px, (min-width: 992px) 450px, (min-width: 768px) 330px, (min-width: 576px) 510px, 545px">

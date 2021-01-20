@@ -4,11 +4,11 @@ import { AwsService } from '../aws.service';
 import { ICategory, IBlogPost } from '../models/blogPost.model';
 
 @Component({
-  selector: 'app-tutorials',
-  templateUrl: './tutorials.component.html',
-  styleUrls: ['./tutorials.component.scss']
+  selector: 'app-blogs',
+  templateUrl: './blogs.component.html',
+  styleUrls: ['./blogs.component.scss']
 })
-export class TutorialsComponent implements OnInit {
+export class BlogsComponent implements OnInit {
  public blogPosts: IBlogPost[] = [];
  public  categories: ICategory[] = [
   {id: 1, name: 'AWS Developer'},
@@ -29,7 +29,7 @@ export class TutorialsComponent implements OnInit {
       slug : '',
       intro : '',
       postId : '',
-      categoryId : 3,
+      categoryId : 1,
       category: '',
       title : '',
       datePosted : '',
@@ -41,7 +41,6 @@ export class TutorialsComponent implements OnInit {
     this.aws.getPosts(blogPost)
     .subscribe((data: any) => {
       data.forEach(a => {
-        console.log(a);
         a.intro = a.Introduction;
         a.title = a.Title;
         a.postId = a.PostId;
