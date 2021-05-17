@@ -11,10 +11,10 @@ import { ICategory, IBlogPost } from '../models/blogPost.model';
 export class BlogsComponent implements OnInit {
  public blogPosts: IBlogPost[] = [];
  public  categories: ICategory[] = [
-  {id: 1, name: 'AWS Developer'},
-  {id: 2, name: 'AWS Cloud Practioner'},
-  {id: 3, name: 'Aws associate Architect'},
-  {id: 4, name: 'AWS Case Studies'}
+  {id: 1, name: 'AWS'},
+  {id: 2, name: 'AZure'},
+  {id: 3, name: 'GCP'},
+  {id: 4, name: 'Docker'}
 ];
   constructor(private aws: AwsService, private router: Router) {
     this.init();
@@ -44,6 +44,7 @@ export class BlogsComponent implements OnInit {
         a.intro = a.Introduction;
         a.title = a.Title;
         a.postId = a.PostId;
+        a.category = this.categories.find(x => x.id === a.categoryId).name;
         if (a.HeaderPhotoUrl != null)
         {
           a.headerPhotoUrl = a.HeaderPhotoUrl;

@@ -6,7 +6,5 @@ export interface IQuestion {
     OptionD: string;
     OptionE: string;
     CorrectAns: string;
-    Domain: string;
-    Category: string;
     Explantion: string;
 }

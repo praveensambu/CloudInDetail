@@ -23,9 +23,10 @@ export class AddPostComponent implements OnInit {
   public post: IBlogPost;
   public date = new Date();
   public  categories: ICategory[] = [
-    {id: 1, name: 'AWS'},
-    {id: 2, name: 'Azure'},
-    {id: 3, name: 'Docker'}
+    {id: 1, name: 'AWS Developer'},
+    {id: 2, name: 'AWS Cloud Practioner'},
+    {id: 3, name: 'Aws associate Architect'},
+    {id: 4, name: 'AWS Case Studies'}
   ];
   constructor(  private formbuilder: FormBuilder,
                 private aws: AwsService,

@@ -20,9 +20,10 @@ import { AngularEditorModule } from '@kolkov/angular-editor';
 import { QuillModule } from 'ngx-quill';
 import { TitleFormatPipe } from './tutorials/TitleFormatPipe';
 import { BlogsComponent } from './blog/blogs.component';
-import { QuestionsComponent } from './Certifications/questions/questions.component';
-import { QuestionComponent } from './Certifications/question/question.component';
-
+import { IntroductionComponent } from './Certifications/Containers/introduction/introduction.component';
+import { ResultsComponent } from './Certifications/Containers/results/results.component';
+import { QuestionComponent } from './Certifications/Containers/question/question.component';
+import { QuestionTemplateComponent } from './Certifications/question/question-template.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,11 +35,14 @@ import { QuestionComponent } from './Certifications/question/question.component'
     BlogsComponent,
     AddPostComponent,
     TitleFormatPipe,
-    QuestionsComponent,
-    QuestionComponent
+    QuestionComponent,
+    ResultsComponent,
+    IntroductionComponent,
+    QuestionTemplateComponent
   ],
   imports: [
     BrowserModule,
+    DemoMaterialModule,
     QuillModule.forRoot(),
     HttpClientModule,
     AppRoutingModule,
@@ -46,7 +50,7 @@ import { QuestionComponent } from './Certifications/question/question.component'
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    DemoMaterialModule
+    
   ],
   providers: [AwsService],
   bootstrap: [AppComponent]

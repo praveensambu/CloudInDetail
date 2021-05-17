@@ -14,10 +14,10 @@ export class BlogPostComponent implements OnInit , OnChanges {
   public post: IBlogPost;
   public loading = false;
   public  categories: ICategory[] = [
-    {id: 1, name: 'AWS Developer'},
-    {id: 2, name: 'AWS Cloud Practioner'},
-    {id: 3, name: 'Aws associate Architect'},
-    {id: 4, name: 'AWS Case Studies'}
+    {id: 1, name: 'AWS'},
+    {id: 2, name: 'AZure'},
+    {id: 3, name: 'GCP'},
+    {id: 4, name: 'Docker'}
   ];
   constructor(private route: ActivatedRoute,
               private router: Router, private aws: AwsService) {
@@ -54,7 +54,7 @@ export class BlogPostComponent implements OnInit , OnChanges {
       headerPhotoUrl: ''
     };
     blogPost.postId = this.route.snapshot.params.postId;
-    blogPost.categoryId = this.route.snapshot.params.categoryId;
+    blogPost.categoryId = this.categories.find(x => x.name === this.route.snapshot.params.category).id;
     this.aws.getPost(blogPost)
     .subscribe((data: any) => {
       blogPost.headerPhotoUrl = data.HeaderPhotoUrl;
