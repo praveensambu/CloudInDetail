@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TestComponent } from './test.component';
+import { LoadingIndicatorComponent } from './loading-indicator.component';
 
-describe('TestComponent', () => {
-  let component: TestComponent;
-  let fixture: ComponentFixture<TestComponent>;
+describe('LoadingIndicatorComponent', () => {
+  let component: LoadingIndicatorComponent;
+  let fixture: ComponentFixture<LoadingIndicatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestComponent ]
+      declarations: [ LoadingIndicatorComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
+    fixture = TestBed.createComponent(LoadingIndicatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

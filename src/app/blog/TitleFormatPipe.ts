@@ -9,7 +9,7 @@ export class TitleFormatPipe implements PipeTransform {
         if (!input) {
             return '';
         } else {
-            return input.split(' ').join('_');
+            return input.split(' ').join('-');
         }
     }
 }

@@ -3,33 +3,34 @@
   <div class="row">
     <div class="col-sm-3"></div>
     <div class="col-sm-8 postlist">
-      <div class="col-sm-5 card" *ngFor="let post of blogPosts">
-        <div class="col-md-12">
-          <div class="image">
-            <a href="#" [routerLink]="['/blog/',post.categoryId, post.postId | format]">
-              <picture class="img-fluid">
-                <source type="image/webp"
-                  sizes="(min-width: 1200px) 540px, (min-width: 992px) 450px, (min-width: 768px) 330px, (min-width: 576px) 510px, 545px">
-                <img class="img-fluid" src="{{post?.headerPhotoUrl}}" alt="[plus] Unboxing AWS DataSync"></picture>
-            </a>
-          </div>
-          <h3>{{post.Title}}</h3>
-          <p> {{post.intro}}</p>
-          <div class="row">
+      <div class="col-sm-8 card" *ngFor="let post of blogPosts">
+          <div class="blog-card">
+            <div class="meta">
+              <!-- <img class="photo" src="{{post?.headerPhotoUrl}}" alt="[plus] Unboxing AWS DataSync"></picture> -->
+              <div class="photo" style="background-image: url({{post?.headerPhotoUrl}})"></div>
+              <ul class="details">
+                <!-- <li class="author"><a href="#">{{post.PostedBy}}</a></li> -->
 
-            <!-- <div class="col-sm-6 p-btn"> -->
-              <a href="#" [routerLink]="['/blog/',post.category, post.postId | format]">Read
-                Article... <i class="ion-arrow-right-c"></i></a>
-             <!--  </div>
-             <div class="col-sm-3">
-              <button mat-button>SHARE</button></div> -->
+                <li class="author">{{post.PostedBy}}</li>
+                <li class="date">{{post.DatePosted}}</li>
+                <li class="tags">
+                  <ul>
+                    <li>AWS</li>
+                  </ul>
+                </li>
+            </ul>
+            </div>
+            <div class="description">
+              <h1>{{post.title.split('_').join(' ')}}</h1>
+              <!-- <h2>Opening a door to the future</h2> -->
+              <p> {{post.intro}}</p>
+              <p class="read-more">
+                <a href="#" [routerLink]="['/blog/',post.category, post.title | format]">Read More</a>
+              </p>
+            </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-2"></div>
 </div>
-<div class="col-sm-12">
-  <router-outlet></router-outlet>
-</div>
+

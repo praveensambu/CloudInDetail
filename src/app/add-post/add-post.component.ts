@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AwsService } from '../aws.service';
 import { DatePipe } from '@angular/common';
 import {formatDate} from '@angular/common';
+import { TitleFormatPipe } from '../tutorials/TitleFormatPipe';
 
 @Component({
   selector: 'app-add-post',
@@ -23,10 +24,10 @@ export class AddPostComponent implements OnInit {
   public post: IBlogPost;
   public date = new Date();
   public  categories: ICategory[] = [
-    {id: 1, name: 'AWS Developer'},
-    {id: 2, name: 'AWS Cloud Practioner'},
-    {id: 3, name: 'Aws associate Architect'},
-    {id: 4, name: 'AWS Case Studies'}
+    {id: 1, name: 'AWS-Developer'},
+    {id: 2, name: 'AWS-Cloud-Practioner'},
+    {id: 3, name: 'Aws-Associate-Architect'},
+    {id: 4, name: 'AWS-Lab'}
   ];
   constructor(  private formbuilder: FormBuilder,
                 private aws: AwsService,
@@ -36,7 +37,7 @@ export class AddPostComponent implements OnInit {
        slug : '',
        intro : '',
        postId : '',
-       categoryId : 1,
+       categoryId : '1',
        category: '',
        title : '',
        datePosted : '',
@@ -95,7 +96,7 @@ export class AddPostComponent implements OnInit {
   public ngOnInit() {
     this.addPostForm = this.formbuilder.group({
       intro : '',
-      categoryId: '',
+      category: '',
       title : '',
       datePosted : '',
       htmlContent : '',
@@ -131,7 +132,9 @@ public remove(tag: any): void {
 
 public addPost() {
   if (this.addPostForm.valid) {
+    
       this.post = this.addPostForm.getRawValue();
+      this.post.title = this.post.title.split(' ').join('_');
       this.post.datePosted = formatDate(new Date(), 'yyyy/MM/dd', 'en');
       this.post.postedBy = 'Praveen Sambu';
       this.aws.addBlogPost(this.post).subscribe((post: any) => {

@@ -28,6 +28,7 @@ export class AwsService {
   }
 
   public addBlogPost(post: IBlogPost): Observable<any> {
+    post.categoryId = post.category;
     return this.httpService.post<IBlogPost>(blogPostUrl, post);
   }
 
@@ -44,7 +45,7 @@ export class AwsService {
     // let params = new HttpParams();
     // params = params.append('CategoryId', '2');
     this.blogPosts = [];
-    const updatedUrl = blogPostUrl + '/' + blogPost.categoryId;
+    const updatedUrl = blogPostUrl + '/' + blogPost.category;
     return this.httpService.get<any>(updatedUrl, {
       headers
     }).pipe(map(res => {
@@ -58,7 +59,7 @@ export class AwsService {
     // let params = new HttpParams();
     // params = params.append('CategoryId', '2');
     this.blogPosts = [];
-    const updatedUrl = blogPostUrl + '/' + blogPost.categoryId + '/' + blogPost.postId;
+    const updatedUrl = blogPostUrl + '/' + blogPost.categoryId + '/' + blogPost.title;
     return this.httpService.get<any>(updatedUrl, {
       headers
     }).pipe(map(res => {

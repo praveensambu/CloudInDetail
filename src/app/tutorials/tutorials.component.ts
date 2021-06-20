@@ -29,7 +29,7 @@ export class TutorialsComponent implements OnInit {
       slug : '',
       intro : '',
       postId : '',
-      categoryId : 3,
+      categoryId : '3',
       category: '',
       title : '',
       datePosted : '',
@@ -41,7 +41,6 @@ export class TutorialsComponent implements OnInit {
     this.aws.getPosts(blogPost)
     .subscribe((data: any) => {
       data.forEach(a => {
-        console.log(a);
         a.intro = a.Introduction;
         a.title = a.Title;
         a.postId = a.PostId;

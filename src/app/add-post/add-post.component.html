@@ -41,8 +41,8 @@
         <div class="row">
           <mat-form-field>
             <mat-label>Category</mat-label>
-            <mat-select formControlName="categoryId" >
-              <mat-option *ngFor="let category of categories" [value]="category.id">
+            <mat-select formControlName="category" >
+              <mat-option *ngFor="let category of categories" [value]="category.name">
                 {{category.name}}
               </mat-option>
             </mat-select>

@@ -1,15 +1,15 @@
 export interface IBlogPost {
    postId: string;
    category: string;
-   categoryId: number;
+   categoryId: string;
    title: string;
    tags: string;
    htmlContent: string;
    datePosted: string;
    postedBy: string;
-   slug : string;
+   slug: string;
    intro: string;
-   headerPhotoUrl : string;
+   headerPhotoUrl: string;
 }
 
 

@@ -12,12 +12,12 @@ export class BlogPostComponent implements OnInit , OnChanges {
   public id: number;
   public posts: any[] = [];
   public post: IBlogPost;
-  public loading = false;
+  public loading = true;
   public  categories: ICategory[] = [
-    {id: 1, name: 'AWS'},
-    {id: 2, name: 'AZure'},
-    {id: 3, name: 'GCP'},
-    {id: 4, name: 'Docker'}
+    {id: 1, name: 'AWS-Developer'},
+    {id: 2, name: 'AWS-Cloud-Practioner'},
+    {id: 3, name: 'Aws-Associate-Architect'},
+    {id: 4, name: 'AWS-Lab'}
   ];
   constructor(private route: ActivatedRoute,
               private router: Router, private aws: AwsService) {
@@ -26,7 +26,7 @@ export class BlogPostComponent implements OnInit , OnChanges {
     slug : '',
     intro : '',
     postId : '',
-    categoryId : 1,
+    categoryId : '1',
     category: '',
     title : '',
     datePosted : '',
@@ -38,13 +38,13 @@ export class BlogPostComponent implements OnInit , OnChanges {
   }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params.postId;
+    this.id = this.route.snapshot.params.title;
     let blogPost: IBlogPost;
     blogPost = {
       slug : '',
       intro : '',
       postId : '',
-      categoryId : 1,
+      categoryId : '1',
       category: '',
       title : '',
       datePosted : '',
@@ -53,8 +53,10 @@ export class BlogPostComponent implements OnInit , OnChanges {
       tags : '',
       headerPhotoUrl: ''
     };
-    blogPost.postId = this.route.snapshot.params.postId;
-    blogPost.categoryId = this.categories.find(x => x.name === this.route.snapshot.params.category).id;
+    blogPost.title = this.route.snapshot.params.title;
+    blogPost.categoryId = this.route.snapshot.params.category;
+    blogPost.postId = this.route.snapshot.params.category;
+    // this.categories.find(x => x.name === this.route.snapshot.params.category).id.toString();
     this.aws.getPost(blogPost)
     .subscribe((data: any) => {
       blogPost.headerPhotoUrl = data.HeaderPhotoUrl;
